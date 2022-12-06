@@ -65,6 +65,16 @@ app.use("/api/bike", bikeRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/member", memberRoutes);
 app.use("/api/booking", bookingRoutes);
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "./client/build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  );
+});
 
 
 //listen
