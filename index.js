@@ -66,6 +66,7 @@ app.use("/api/bike", bikeRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/member", memberRoutes);
 app.use("/api/booking", bookingRoutes);
+app.use(express.static(path.join(__dirname, "./client/build")));
 app.get("*", function (_, res) {
   res.sendFile(
     path.join(__dirname, "./client/build/index.html"),
